@@ -1,7 +1,5 @@
 Explication des données
 
-
-
 feux_foret_2019
 Ce fichier csv s’appuie sur les données des feux de forêt de la NASA. La NASA met à disposition un fichier csv par année et par pays de 2000 à 2019 concernant les feux de forêts ayant provoqués de la déforestation.
 
