@@ -1,0 +1,30 @@
+Explication des données
+
+
+
+feux_foret_2019
+Ce fichier csv s’appuie sur les données des feux de forêt de la NASA. La NASA met à disposition un fichier csv par année et par pays de 2000 à 2019 concernant les feux de forêts ayant provoqués de la déforestation.
+
+Nous avons donc sélectionné tous les fichiers csv de l’année 2019 et nous les avons fusionnés pour obtenir ce fichier.
+
+Ce fichier se compose de 15 colonnes :
+-	Latitude
+-	Longitude
+-	Brightness
+-	Scan
+-	Track
+-	acq_date
+-	acq_time
+-	satellite
+-	instrument
+-	confidence
+-	version
+-	bright_t31
+-	frp
+-	daynight
+-	type
+
+Seulement la latitude et la longitude nous intéressent.
+
+Ces données ont une résolution de 375m. C’est-à-dire que chaque point de coordonnée représente en réalité une surface de 375m².
+
