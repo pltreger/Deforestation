@@ -1,0 +1,116 @@
+/* Necessary for full page carousel*/
+html,
+body,
+.view {
+  height: 100%;
+}
+
+/* Carousel*/
+.carousel,
+.carousel-item,
+.carousel-item.active {
+  height: 100%;
+}
+.carousel-inner {
+  height: 100%;
+}
+.carousel-item:nth-child(1) {
+  background-image: url("img/35584_large.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.carousel-item:nth-child(2) {
+  background-image: url("img/deforestation.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.carousel-item:nth-child(3) {
+  background-image: url("img/deforestation-bresil_6270718.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+h1, h3 {
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+
+.test {
+    position: relative;
+    top: 35%;
+    text-shadow: 2px 1px 2px black;
+}
+ .border {
+    background-color: rgba(95, 95, 90, 0.5);
+ }
+
+ .pt {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+#black {
+    margin-top: 0px;
+    padding-top: 1em;
+    background-color: #2f2f2f;
+    min-height: 300px;
+    width: 100%;
+}
+
+#black h3 {
+    color: white;
+}
+
+#black h4 {
+    color: white;
+    text-transform: uppercase
+}
+
+#black p {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#black i {
+    font-size: 35px;
+}
+
+#black h1 {
+    color: white;
+    font-size: 50px;
+    text-shadow: 1px 1px 2px black;
+}
+
+#black hr {
+    color: #93cf82;
+}
+
+.mt {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.centered {
+    text-align: center;
+}
+
+ #black i {
+    color: #93cf82;
+  }
+
+#joli {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#testCouleur i {
+    color:#cb2c2c;
+}
+
+#testCouleur hr {
+    color: #cb2c2c;
+}
