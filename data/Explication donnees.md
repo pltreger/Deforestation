@@ -4,10 +4,10 @@
 ### perte_couverture_mondiale
 Ce fichier contient les données de la perte de couverture forestière mondiale de 2001 à 2019.
 
-Ce fichier est composé de 3 colonnes :
-- annee : date des données
-- perte_biomasse_Mg : perte de la biomasse forestière en Méga gramme
-- perte_surface_ha : perte de la surface forestière en hectare
+> Ce fichier est composé de 3 colonnes :
+> - annee : date des données
+> - perte_biomasse_Mg : perte de la biomasse forestière en Méga gramme
+> - perte_surface_ha : perte de la surface forestière en hectare
 
 Ce fichier contient une ligne par année.
 
@@ -22,11 +22,11 @@ Dans ce fichier se trouvent les données de la déforestation mondiale causée p
 - Foresterie
 - Autres
 
-Ce fichier contient 4 colonnes :
-- annee : date des données
-- perte_biomasse_Mg : perte de la biomasse forestière en Méga gramme
-- perte_surface_ha : perte de la surface forestière en hectare
-- cause : correspondant à la cause ayant provoqué cette déforestation
+> Ce fichier contient 4 colonnes :
+> - annee : date des données
+> - perte_biomasse_Mg : perte de la biomasse forestière en Méga gramme
+> - perte_surface_ha : perte de la surface forestière en hectare
+> - cause : correspondant à la cause ayant provoqué cette déforestation
 
 Ce fichier contient donc pour chacune des 6 causes citées ci-dessus une ligne par année de 2001 à 2019.
 
@@ -35,12 +35,12 @@ Ce fichier contient donc pour chacune des 6 causes citées ci-dessus une ligne p
 ### perte_couverture_par_pays
 Ce fichier regroupe les données de la perte de couverture forestière pour chaque pays.
 
-Il est composé de 5 colonnes :
-- iso : code ISO du pays
-- pays : nom du pays
-- annee : date des données
-- perte_biomasse_Mg : perte de la biomasse forestière en Méga gramme
-- perte_surface_ha : perte de la surface forestière en hectare
+> Il est composé de 5 colonnes :
+> - iso : code ISO du pays
+> - pays : nom du pays
+> - annee : date des données
+> - perte_biomasse_Mg : perte de la biomasse forestière en Méga gramme
+> - perte_surface_ha : perte de la surface forestière en hectare
 
 Ce fichier contient donc une ligne par année de 2001 à 2019 pour chacun des pays du monde.
 
@@ -55,13 +55,13 @@ Ce fichier correspond aux données de la déforestation par pays causée par cha
 - Foresterie
 - Autres
 
-Ce fichier est divisé en 6 colonnes :
-- iso : code ISO du pays
-- pays : nom du pays
-- annee : date des données
-- perte_biomasse_Mg : perte de la biomasse forestière en Méga gramme
-- perte_surface_ha : perte de la surface forestière en hectare
-- cause : correspondant à la cause ayant provoqué cette déforestation
+> Ce fichier est divisé en 6 colonnes :
+> - iso : code ISO du pays
+> - pays : nom du pays
+> - annee : date des données
+> - perte_biomasse_Mg : perte de la biomasse forestière en Méga gramme
+> - perte_surface_ha : perte de la surface forestière en hectare
+> - cause : correspondant à la cause ayant provoqué cette déforestation
 
 Ce fichier contient donc une ligne par année de 2001 à 2019 pour chacun des pays du monde pour chacune des causes citées ci-dessus.
 
