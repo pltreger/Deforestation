@@ -114,3 +114,16 @@ h1, h3 {
 #testCouleur hr {
     color: #cb2c2c;
 }
+
+#white {
+    margin-top: 30px;
+    background-color: #ffffff;
+    min-height: 300px;
+    width: 100%;
+    color: black;
+    text-align: center;
+}
+
+#white h1 {
+    color: black !important;
+}
