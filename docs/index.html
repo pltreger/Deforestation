@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="style.css" rel="stylesheet">
+		<link href="grapheComparatif/styleGrapheComparatif.css" rel="stylesheet">
+		<link href="grapheDeforestation/grapheDeforestation.js" rel="stylesheet">
+		<link href="graphePays/styleGraphePays.css" rel="stylesheet">
+		<link href="grapheTotal/styleGrapheTotal.css" rel="stylesheet">
+		<script src="https://d3js.org/d3.v6.min.js"></script>
+		<script src="https://d3js.org/d3-array.v2.min.js"></script>
+		<script src="https://d3js.org/d3-geo.v2.min.js"></script>
+		<script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
+		<script src="https://d3js.org/topojson.v1.min.js"></script>
+		
+		<script src="https://kit.fontawesome.com/ca023ff532.js" crossorigin="anonymous"></script>
+
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		
+		<!-- Optional JavaScript; choose one of the two! -->
+
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+		<!-- Option 2: Separate Popper and Bootstrap JS -->
+		<!--
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+		-->
+
+		<title>Data Visualisation</title>
+	</head>
+	<body>
+		<div id="carouselExample" class="carousel carousel slide" data-bs-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+				<li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+				<li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active" data-bs-interval="10000">
+					<div class="test">
+						<div class="text-center my-auto">
+							<div class="row">
+								<div class="col-sm-2"></div>
+								<div class="border border-white rounded col-md-8">
+									<div class="border border-white rounded mb-2 mt-2 ml-1 mr-1">
+									<h1 class="mb-1 mt-5"> Data Visualisation Déforestation </h1>
+									<h3 class="mb-5">
+									<em>Comment pourrait-on montrer les différents facteurs humain responsable de la déforestation ?</em>
+									</h3>
+									</div>
+								</div>
+								<div class="col-sm-2"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item" data-bs-interval="2000">
+					<div class="test">
+						<div class="text-center my-auto">
+							<div class="row">
+								<div class="col-sm-2"></div>
+								<div class="border border-white rounded col-md-8">
+									<div class="border border-white rounded mb-2 mt-2 ml-1 mr-1">
+									<h1 class="mb-1 mt-5"> Data Visualisation Déforestation </h1>
+									<h3 class="mb-5">
+									<em>Comment pourrait-on montrer les différents facteurs humain responsable de la déforestation ?</em>
+									</h3>
+									</div>
+								</div>
+								<div class="col-sm-2"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="test">
+						<div class="text-center my-auto">
+							<div class="row">
+								<div class="col-sm-2"></div>
+								<div class="border border-white rounded col-md-8">
+									<div class="border border-white rounded mb-2 mt-2 ml-1 mr-1">
+									<h1 class="mb-1 mt-5"> Data Visualisation Déforestation </h1>
+									<h3 class="mb-5">
+									<em>Comment pourrait-on montrer les différents facteurs humain responsable de la déforestation ?</em>
+									</h3>
+									</div>
+								</div>
+								<div class="col-sm-2"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</a>
+		</div>
+
+		<nav class="navbar fixed-top navbar-light" style="background-color: #93cf82;"">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Déforestation</a>
+			</div>
+		</nav>
+		
+		<div id="black">
+			<div class="container pt">
+				<div class="row centered">
+					<div class="col-lg-4"></div>
+					<div class="col-lg-4">
+						<h1>Quelques chiffres</h1>
+						<hr>
+					</div>
+					<div class="col-lg-4"></div>
+					<div class="col-lg-6">
+						<p><i class="fas fa-tree"></i></p>
+						<h1>30 %</h1>
+						<hr>
+						<h4>de la surface de la terre est composé de forêt</h4>
+					</div>
+			
+					<div class="col-lg-6">
+						<p><i class="fas fa-globe-europe"></i></p>
+						<h1>4.1 millions</h1>
+						<hr>
+						<h4>d'hectares de forêt sur Terre</h4>
+					</div>
+
+					<p id="joli"></p>
+
+			
+					<div id="testCouleur" class="col-lg-4">
+						<p><i class="fas fa-tree"></i></p>
+						<h1>11.9 millions</h1>
+						<hr>
+						<h4>d'hectares de forêt perdu dans les tropiques en 2019</h4>
+					</div>
+			
+					<div id="testCouleur" class="col-lg-4">
+						<p><i class="fas fa-leaf"></i></p>
+						<h1>3.8 millions</h1>
+						<hr>
+						<h4>des 11.9 millions sont des forêt primaire tropicales</h4>
+					</div>
+
+					<div id="testCouleur" class="col-lg-4">
+						<p><i class="fas fa-futbol"></i></i></p>
+						<h1>6 secondes</h1>
+						<hr>
+						<h4>C'est le temps qu'il faut pour détruire un terrain de foot de forêt et cela pendant toutes l'année</h4>
+					</div>
+		
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /black -->
+
+		<div id="white">
+			<div class="container">
+				<div class="row mb-3">
+					<div class="col-lg-4"></div>
+					<div class="col-lg-4 centered">
+						<h1>Notre projet</h1>
+						<hr>
+					</div>
+					<div class="col-lg-4"></div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2"></div>
+					<div class="col-lg-8 col-lg-offset-2">
+						<p>
+							Ce site est une datavisualisation ayant pour objectif de répondre à notre problématique principale qui est : 
+							<br>
+							<em>Comment pourrait-on montrer les différents facteurs humain responsable de la déforestation ?</em>
+							<br>
+							Le but est réellement de pouvoir montrer tout d’abord les différents facteurs humain qui peuvent causer des déforestations et ensuite de pouvoir voir l’impact actuel de ces facteurs sur notre planète. L'intérêt est de visualiser l’ampleur de ses dégâts depuis ces dernières années, pour mesurer l’impact de de l’être humain sur nos forêts.
+						</p>
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /white -->
+
+		<div id="grapheDeforestation"></div>
+		<script type="text/javascript" src="grapheDeforestation/grapheDeforestation.js"></script>
+	
+		<div id="grapheTotal"></div>
+		<script type="text/javascript" src="grapheTotal/grapheTotal.js"></script>
+
+		<div id="grapheComparatif"></div>
+		<script type="text/javascript" src="grapheComparatif/grapheComparatif.js"></script>
+
+		<div id="graphePays"></div>
+		<script type="text/javascript" src="graphePays/graphePays.js"></script>
+	</body>
+</html>
