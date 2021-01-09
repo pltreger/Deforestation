@@ -30,6 +30,8 @@ let subTitle = svgC
   .attr("y", 60)
   .html("Déforestation, en hectare");
 
+couleurs = ["#F1C453", "#83E377", "#048BA8", "#EFEA5A", "#16DB93", "#F29E4C", "#2C699A", "#B9E769", "#0DB39E", "#54478C"];
+
 let annee = 2019;
 d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte_couverture_par_pays.csv").then(function (data) {
   //Récupérations données 2001
@@ -38,6 +40,7 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
     .sort((a, b) => b.perte_surface_ha - a.perte_surface_ha)
     .slice(0, top_n);
   donneesAnnee.forEach((d, i) => (d.rank = i));
+
 
   //Affichage graphique pour 2001
   let xC = d3
@@ -73,7 +76,7 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
     .attr("width", (d) => xC(d.perte_surface_ha) - xC(0) - 1)
     .attr("y", (d) => yC(d.rank) + 5 + 100)
     .attr("height", yC(1) - yC(0) - barPadding)
-    .style("fill", "#147c74");
+    .style("fill", (d) => couleurs[d.rank]);
   svgC
     .selectAll("text.labelComparatif")
     .data(donneesAnnee, (d) => d.pays)
