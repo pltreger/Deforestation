@@ -6,7 +6,7 @@
 // Pensez aussi a adapter les tailles et tout à ce que vous voulez rendre !
 
 // Definition de la taille du svgDefo (width et height)
-var marginDefo = { top: -80, right: 10, bottom: 20, left: 10 };
+var marginDefo = { top: -340, right: 10, bottom: 20, left: 10 };
 var wDefo = 400 - marginDefo.left - marginDefo.right;
 var hDefo = 400 - marginDefo.top - marginDefo.bottom;
 var radius = Math.min(wDefo, hDefo) / 2;
@@ -16,7 +16,21 @@ var svgDefo = d3.select("#grapheDeforestation")
 	.append("svg")
 	.attr("width", "100%")
 	.attr("height", hDefo)
-  	.attr("viewBox", [-wDefo / 2, -hDefo / 2, wDefo, hDefo]);
+	  .attr("viewBox", [-wDefo / 2, -hDefo / 2, wDefo, hDefo]);
+
+var titreDefo = svgDefo
+    .append("text")
+	.attr("class", "titreDefo")
+	.attr("x", -250)
+	.attr("y", -320)
+	.html("Perte de surface de forêt en hectare");
+
+var sousTitre = svgDefo
+	.append("text")
+	.attr("class", "titreDefo")
+	.attr("x", -210)
+	.attr("y", -290)
+	.html("selon le type de déforestation");
 
 var pieDefo = d3.pie()
 	.padAngle(0.005)
