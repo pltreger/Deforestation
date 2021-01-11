@@ -98,4 +98,32 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
           .attr("cy", function(d) { return y(d.perte_surface_ha) } )
           .attr("r", 5)
           .attr("stroke", "white")
+    
+    svgP
+        .selectAll("myLegend")
+        .data(csvDataPays)
+        .enter()
+            .append('g')
+            .append("text")
+                .attr('x', 1080)
+                .attr('y', function(d,i) { return 30 + i*40})
+                .text(function(d) { return d.name; })
+                .style("fill", function(d){ return myColor(d.name) })
+                .style("font-size", 15)
+            .on("click", function(event, d){
+                console.log(event)
+                // is the element currently visible ?
+                currentOpacity = d3.selectAll("." + d.name[4]).style("opacity")
+                // Change the opacity: from 0 to 1 or from 1 to 0
+                d3.selectAll("." + d.name[4]).transition().style("opacity", currentOpacity == 1 ? 0:1)
+      
+            })
+    svgP.selectAll("mydots")
+        .data(csvDataPays)
+            .enter()
+            .append("circle")
+              .attr("cx", 1060)
+              .attr("cy", function(d,i){ return 25 + i*40}) // 100 is where the first dot appears. 25 is the distance between dots
+              .attr("r", 7)
+              .style("fill", function(d){ return myColor(d.name) })
 })
