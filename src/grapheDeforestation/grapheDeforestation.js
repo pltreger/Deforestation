@@ -45,7 +45,7 @@ var outerArc = d3.arc()
 //var dateArray = ["2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"]; 
 
 d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte_couverture_mondiale_par_causes.csv").then(function(data) {
-	console.log(data)
+	//console.log(data)
 	csvData = data;
 	update(dateActu)
 })
@@ -61,7 +61,7 @@ function update(annee) {
 	svgDefo
 		.selectAll('polyline')
 		.remove()
-	console.log(annee)
+	//console.log(annee)
 	dateActu = annee;
 	var arcsDefo = pieDefo(csvData);
 
@@ -107,7 +107,6 @@ function update(annee) {
 				var pos = outerArc.centroid(d);
 				var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
 				pos[0] = radius * 1.3 * (midangle < Math.PI ? 1 : -1);
-				console.log
 				return 'translate(' + pos + ')';
 			})
 			.call(text => text.append("tspan")
