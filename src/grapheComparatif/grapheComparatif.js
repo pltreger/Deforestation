@@ -24,7 +24,7 @@ function colorFilter(d){
 
 function drawGrahpics() {
 
-  var marginC = { top: 10, right: 30, bottom: 20, left: 30 },
+  var marginC = { top: 10, right: 30, bottom: 20, left: 100 },
     widthC = 1500 - marginC.left - marginC.right,
     heightC = 500 - marginC.top - marginC.bottom;
 
