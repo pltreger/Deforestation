@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="style.css" rel="stylesheet">
 		<link href="grapheComparatif/styleGrapheComparatif.css" rel="stylesheet">
-		<link href="grapheDeforestation/grapheDeforestation.js" rel="stylesheet">
+		<link href="grapheDeforestation/styleGrapheDeforestation.css" rel="stylesheet">
 		<link href="graphePays/styleGraphePays.css" rel="stylesheet">
 		<link href="grapheTotal/styleGrapheTotal.css" rel="stylesheet">
 		<script src="https://d3js.org/d3.v6.min.js"></script>
@@ -197,14 +197,59 @@
 
 		<div id="grapheDeforestation"></div>
 		<script type="text/javascript" src="grapheDeforestation/grapheDeforestation.js"></script>
+		<div class="container">
+			<button type="button" class="btn btn-outline-info" onclick="update('2001')">2001</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2002')">2002</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2003')">2003</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2004')">2004</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2005')">2005</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2006')">2006</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2007')">2007</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2008')">2008</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2009')">2009</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2010')">2010</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2011')">2011</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2012')">2012</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2013')">2013</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2014')">2014</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2015')">2015</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2016')">2016</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2017')">2017</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2018')">2018</button>
+			<button type="button" class="btn btn-outline-info" onclick="update('2019')">2019</button>
+		</div>
 	
 		<div id="grapheTotal"></div>
 		<script type="text/javascript" src="grapheTotal/grapheTotal.js"></script>
 
-		<div id="grapheComparatif"></div>
+		<div id="grapheComparatif">
+			<button type="button" class="btn btn-outline-info" id="replay">Replay</button>
+		</div>
 		<script type="text/javascript" src="grapheComparatif/grapheComparatif.js"></script>
 
 		<div id="graphePays"></div>
 		<script type="text/javascript" src="graphePays/graphePays.js"></script>
+		<div class="container">
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Argentine')">Argentine</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Australie')">Australie</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Bolivie')">Bolivie</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Bresil')">Bresil</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Canada')">Canada</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Chine')">Chine</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Colombie')">Colombie</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('etats-Unis')">Etats-Unis</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Indonesie')">Indonesie</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Madagascar')">Madagascar</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Malaisie')">Malaisie</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Mexique')">Mexique</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Myanmar')">Myanmar</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Nigeria')">Nigeria</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Paraguay')">Paraguay</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Perou')">Perou</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Republique democratique du Congo')">Republique democratique du Congo</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Russie')">Russie</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Suede')">Suede</button>
+			<button type="button" class="btn btn-outline-info" onclick="updateP('Tanzanie')">Tanzanie</button>
+		</div>
 	</body>
 </html>
