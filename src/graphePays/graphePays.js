@@ -10,7 +10,7 @@ var marginP = {top: 10, right: 100, bottom: 30, left: 60},
     widthP = 1200 - marginP.left - marginP.right,
     heightP = 400 - marginP.top - marginP.bottom;
 
-var paysDefaut = 'Russie';
+var paysDefaut = 'Bresil';
 var csvDataPays = [];
 // append the svgP object to the body of the page
 var svgP = d3.select("#graphePays")
@@ -23,7 +23,8 @@ var svgP = d3.select("#graphePays")
           "translate(" + marginP.left + "," + marginP.top + ")");
 //Read the data
 d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte_couverture_par_pays_par_causes.csv").then(function(data) {
-    console.log(data)
+
+    // GESTION DES DONNEES
     for(var i = 0; i < data.length; i++) {
         if(data[i].pays === paysDefaut) {
             csvDataPays.push(data[i])
@@ -37,7 +38,7 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
 
     var allCause = ["Agriculture", "Autres", "Deforestation due aux produits de base", "Foresterie", "Feu de foret", "Urbanisation"]
 
-    csvDataPays = allCause.map( function(grpName) { // .map allows to do something for each element of the list
+    csvDataPays = allCause.map( function(grpName) {
         return {
           name: grpName,
           values: csvDataPays.filter(d => d.cause === grpName)
@@ -45,10 +46,22 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
 
     console.log(csvDataPays)
 
+    // Mettre à jour le max de la courbe Y
+    let max = 0;
+    csvDataPays.forEach(p => {
+        console.log(p)
+        return p.values.forEach(m => {
+            max = Math.max(max, m.perte_surface_ha)
+        })
+    });
+    console.log(max)
+
+    // GESTION DES COULEURS
     var myColor = d3.scaleOrdinal()
       .domain(allCause)
       .range(["#EFEA5A","#0DB39E","#2C699A","#B9E769","#F29E4C","#54478C"]);
-
+    
+    // Gestion du graphe
     // Add X axis --> it is a date format
     var x = d3.scaleTime()
         .domain([new Date(2001, 0, 1), new Date(2019, 0, 1)])
@@ -60,11 +73,17 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
 
     // Add Y axis
     var y = d3.scaleLinear()
-        .domain( [0, 4500000])
+        .domain( [0, max])
         .range([ heightP, 0 ]);
 
     svgP.append("g")
         .call(d3.axisLeft(y));
+
+    var tooltipP = d3.select("#graphePays")
+        .append("div")
+        .attr("class", "tooltip")
+    
+      // Three function that change the tooltip when user hover / move / leave a cell
 
     // Add the lines
     var lineP = d3.line()
@@ -96,8 +115,29 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
         .append("circle")
           .attr("cx", function(d) { return x(new Date (d.annee, 0, 1)) } )
           .attr("cy", function(d) { return y(d.perte_surface_ha) } )
-          .attr("r", 5)
+          .attr("r", 7)
           .attr("stroke", "white")
+        .on('mouseover', function(event,d) {
+            //console.log(event.selection)
+           
+            tooltipP.style("opacity", 1)
+        })
+        .on('mousemove', function(event, d) {
+            // on recupere la position de la souris
+            // on affiche le toolip
+            tooltipP
+            // on positionne le tooltip en fonction 
+                // de la position de la souris
+                .style("left", (event.pageX) + 28 + "px")
+                .style("top", (event.pageY) - 28 + "px")
+                // on recupere le nom de l'etat 
+                .html(paysDefaut + " - " + d.cause + "<br>" + d.annee + "<br>" + parseInt(d.perte_surface_ha) + " ha");
+        })
+        .on('mouseout', function() {
+            // on cache le toolip
+            console.log('OUT')
+            tooltipP.style('opacity', 0)
+        })
     
     svgP
         .selectAll("myLegend")

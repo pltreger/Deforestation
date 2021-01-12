@@ -121,7 +121,7 @@ function update(annee) {
 				.attr("x", 0)
 				.attr("y", "0.7em")
 				.attr("fill-opacity", 0.7)
-				.text(d => {if(d.data.annee === annee) return (d.data.perte_surface_ha.toLocaleString() + " ha")})
+				.text(d => {if(d.data.annee === annee) return (parseInt(d.data.perte_surface_ha) + " ha")})
 			.style('text-anchor', function(d) {
 				var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
 				return (midangle < Math.PI ? 'start' : 'end')
