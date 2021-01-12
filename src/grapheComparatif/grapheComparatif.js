@@ -218,7 +218,8 @@ function drawGrahpics() {
           .ease(d3.easeLinear)
           .attr("x", (d) => xC(d.perte_surface_ha) + 5)
           .attr("y", (d) => yC(d.rank) + 5 + (yC(1) - yC(0)) / 2 + 1)
-          .tween("text", function (d) {
+          .text((d) => d3.format(",.0f")(d.perte_surface_ha));
+          /*.tween("text", function (d) {
             let i = d3.interpolate(
               donneesAnneePrecedent.forEach((dPrecedent) => {
                 if (d.pays === dPrecedent.pays) {
@@ -230,7 +231,8 @@ function drawGrahpics() {
             return function (t) {
               this.textContent = d3.format(",")(i(t));
             };
-          });
+          });*/
+
 
         valueLabelsC
           .exit()
