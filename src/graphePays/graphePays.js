@@ -11,6 +11,7 @@ var marginP = {top: 10, right: 100, bottom: 30, left: 60},
     heightP = 400 - marginP.top - marginP.bottom;
 
 var paysDefaut = 'Bresil';
+var csvData;
 var csvDataPays = [];
 // append the svgP object to the body of the page
 var svgP = d3.select("#graphePays")
@@ -24,17 +25,34 @@ var svgP = d3.select("#graphePays")
 //Read the data
 d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte_couverture_par_pays_par_causes.csv").then(function(data) {
 
+    csvData = data;
+    updateP(paysDefaut);
+})
+
+function updateP(paysD) {
+
+    svgP
+		.selectAll('path')
+        .remove()
+    svgP
+		.selectAll('circle')
+        .remove()
+    svgP
+		.selectAll('.tick')
+        .remove()
+
+    paysDefaut = paysD;
+
     // GESTION DES DONNEES
-    for(var i = 0; i < data.length; i++) {
-        if(data[i].pays === paysDefaut) {
-            csvDataPays.push(data[i])
+    for(var i = 0; i < csvData.length; i++) {
+        if(csvData[i].pays === paysDefaut) {
+            csvDataPays.push(csvData[i])
         }
     }
 
     csvDataPays = csvDataPays.sort(function compare(a, b) {
         return a.annee - b.annee;
     });
-    console.log(csvDataPays)
 
     var allCause = ["Agriculture", "Autres", "Deforestation due aux produits de base", "Foresterie", "Feu de foret", "Urbanisation"]
 
@@ -44,8 +62,6 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
           values: csvDataPays.filter(d => d.cause === grpName)
     }});
 
-    console.log(csvDataPays)
-
     // Mettre à jour le max de la courbe Y
     let max = 0;
     csvDataPays.forEach(p => {
@@ -54,7 +70,6 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
             max = Math.max(max, m.perte_surface_ha)
         })
     });
-    console.log(max)
 
     // GESTION DES COULEURS
     var myColor = d3.scaleOrdinal()
@@ -166,4 +181,4 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
               .attr("cy", function(d,i){ return 25 + i*40}) // 100 is where the first dot appears. 25 is the distance between dots
               .attr("r", 7)
               .style("fill", function(d){ return myColor(d.name) })
-})
+}
