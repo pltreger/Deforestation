@@ -6,12 +6,12 @@
 // Pensez aussi a adapter les tailles et tout à ce que vous voulez rendre !
 
 // Definition de la taille du svgP (widthP et heightP)
-var marginP = {top: 10, right: 100, bottom: 30, left: 60},
+var marginP = {top: 50, right: 100, bottom: 30, left: 60},
     widthP = 1200 - marginP.left - marginP.right,
     heightP = 400 - marginP.top - marginP.bottom;
 
 var paysDefaut = 'Bresil';
-var csvData;
+var csvDataP;
 var csvDataPays = [];
 // append the svgP object to the body of the page
 var svgP = d3.select("#graphePays")
@@ -25,11 +25,13 @@ var svgP = d3.select("#graphePays")
 //Read the data
 d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte_couverture_par_pays_par_causes.csv").then(function(data) {
 
-    csvData = data;
+    csvDataP = data;
     updateP(paysDefaut);
 })
 
 function updateP(paysD) {
+
+    console.log('Patate')
 
     svgP
 		.selectAll('path')
@@ -40,13 +42,16 @@ function updateP(paysD) {
     svgP
 		.selectAll('.tick')
         .remove()
+    svgP
+        .selectAll('text')
+        .remove()
 
     paysDefaut = paysD;
 
     // GESTION DES DONNEES
-    for(var i = 0; i < csvData.length; i++) {
-        if(csvData[i].pays === paysDefaut) {
-            csvDataPays.push(csvData[i])
+    for(var i = 0; i < csvDataP.length; i++) {
+        if(csvDataP[i].pays === paysDefaut) {
+            csvDataPays.push(csvDataP[i])
         }
     }
 
@@ -70,6 +75,14 @@ function updateP(paysD) {
             max = Math.max(max, m.perte_surface_ha)
         })
     });
+
+    svgP
+      .append("text")
+      .attr("class", "cssPays")
+      .attr("x", (() => { return paysDefaut === 'Republique democratique du Congo' ? 1050 : 650}))
+      .attr("y", 150)
+      .style("text-anchor", "end")
+      .html(paysDefaut);
 
     // GESTION DES COULEURS
     var myColor = d3.scaleOrdinal()

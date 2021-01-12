@@ -24,16 +24,17 @@ function colorFilter(d){
 
 function drawGrahpics() {
 
-  var marginC = { top: 10, right: 30, bottom: 20, left: 100 },
-    widthC = 1500 - marginC.left - marginC.right,
+  var marginC = { top: 10, right: 30, bottom: 20, left: 30 },
+    widthC = 1000 - marginC.left - marginC.right,
     heightC = 500 - marginC.top - marginC.bottom;
 
   // append the svgC object to the body of the page
   var svgC = d3
     .select("#grapheComparatif")
     .append("svg")
-    .attr("width", widthC + marginC.left + marginC.right)
+    .attr("width", "100%")
     .attr("height", heightC + marginC.top + marginC.bottom -10)
+    .attr("viewBox", [350, 0, 600, 500])
     .append("g")
     .attr("transform", "translate(" + marginC.left + "," + marginC.top + ")");
 
@@ -111,8 +112,8 @@ function drawGrahpics() {
     let texteAnnee = svgC
       .append("text")
       .attr("class", "anneeComparatif")
-      .attr("x", widthC - marginC.right - 200)
-      .attr("y", heightC - 25 )
+      .attr("x", widthC)
+      .attr("y", heightC - 100)
       .style("text-anchor", "end")
       .html(~~annee);
 

@@ -43,31 +43,30 @@
   
 //Debut graph
 
-var width = 800, height = 1100;
-var widthFixed = 1300, heightFixed = 1600;
+var width = 800, height = 820;
 d3.select("#grapheTotal")
     .append("svg")
     .attr("id","svgComparatifPaysCause")
-    .attr("width", widthFixed)
-    .attr("height", heightFixed)
+    .attr("width", "100%")
+    .attr("height", height)
+    .attr("viewBox", [0,0,1600,1090])
     .attr("font-size","0.9rem")
   
 var svg = d3.select("#svgComparatifPaysCause"),
 // width = +svg.attr("width"),
 // height = +svg.attr("height"),
-innerRadius = 250,
-outerRadius = Math.min(width, height) * 0.77,
-g = svg.append("g").attr("transform", "translate(" + width / 1.2 + "," + height * 0.78 + ")");
+innerRadius = 200,
+outerRadius = Math.min(width, height),
+g = svg.append("g").attr("transform", "translate(" + width + "," + height + ")");
 
 var x = d3.scaleBand()
-.range([0, 2 * Math.PI])
-.align(0);
+.range([0, 2 * Math.PI]);
 
 var y = d3.scaleRadial()
 .range([innerRadius, outerRadius]);
 
 var z = d3.scaleOrdinal()
-.range(["#54478C","#EFEA5A","#0DB39E","#2C699A","#B9E769","#F29E4C"]);
+.range(["#0DB39E","#B9E769","#F29E4C","#2C699A","#EFEA5A","#54478C"]);
 
 d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/maria/data/perte_couverture_par_pays_par_causes.csv", function(data) {
 total = 0;
@@ -255,7 +254,7 @@ legend.append("text")
   .attr("x", 24)
   .attr("y", 9)
   .attr("dy", "0.35em")
-  .text(function(d) { return d; });
+  .text(function(d) { return d === "Deforestation due aux produits de base" ? "Deforestation produits base" : d;  });
 });
 
 function weave(array, compare) {

@@ -33,7 +33,7 @@ body,
   background-position: center center;
 }
 
-h1, h3 {
+#title h1, h3 {
     color: white;
     padding-left: 5px;
     padding-right: 5px;
@@ -56,6 +56,7 @@ h1, h3 {
 #black {
     margin-top: 0px;
     padding-top: 1em;
+    padding-bottom: 1em;
     background-color: #2f2f2f;
     min-height: 300px;
     width: 100%;
@@ -116,14 +117,50 @@ h1, h3 {
 }
 
 #white {
-    margin-top: 30px;
-    background-color: #ffffff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(242, 242, 242);
     min-height: 300px;
     width: 100%;
     color: black;
     text-align: center;
 }
 
-#white h1 {
-    color: black !important;
+#defo {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: white;
+    max-width: 100%;
+    color: black;
+}
+
+#compa {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(242, 242, 242);
+    max-width: 100%;
+}
+
+#compa h3 {
+    color: grey !important;
+    font-style: italic;
+}
+
+#total {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: white;
+    max-width: 100%;
+}
+
+#total h3 {
+    color: grey !important;
+    font-style: italic;
+}
+
+#pays {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(242, 242, 242);
+    max-width: 100%;
 }

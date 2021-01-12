@@ -44,7 +44,7 @@
 				<div class="carousel-item active" data-bs-interval="10000">
 					<div class="test">
 						<div class="text-center my-auto">
-							<div class="row">
+							<div class="row" id="title">
 								<div class="col-sm-2"></div>
 								<div class="border border-white rounded col-md-8">
 									<div class="border border-white rounded mb-2 mt-2 ml-1 mr-1">
@@ -62,7 +62,7 @@
 				<div class="carousel-item" data-bs-interval="2000">
 					<div class="test">
 						<div class="text-center my-auto">
-							<div class="row">
+							<div class="row" id="title">
 								<div class="col-sm-2"></div>
 								<div class="border border-white rounded col-md-8">
 									<div class="border border-white rounded mb-2 mt-2 ml-1 mr-1">
@@ -80,7 +80,7 @@
 				<div class="carousel-item">
 					<div class="test">
 						<div class="text-center my-auto">
-							<div class="row">
+							<div class="row" id="title">
 								<div class="col-sm-2"></div>
 								<div class="border border-white rounded col-md-8">
 									<div class="border border-white rounded mb-2 mt-2 ml-1 mr-1">
@@ -106,11 +106,11 @@
 			</a>
 		</div>
 
-		<nav class="navbar fixed-top navbar-light" style="background-color: #93cf82;"">
+		<!--<nav class="navbar fixed-top navbar-light" style="background-color: #93cf82;"">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">Déforestation</a>
 			</div>
-		</nav>
+		</nav>-->
 		
 		<div id="black">
 			<div class="container pt">
@@ -195,61 +195,103 @@
 		</div>
 		<!-- /white -->
 
-		<div id="grapheDeforestation"></div>
-		<script type="text/javascript" src="grapheDeforestation/grapheDeforestation.js"></script>
-		<div class="container">
-			<button type="button" class="btn btn-outline-info" onclick="update('2001')">2001</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2002')">2002</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2003')">2003</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2004')">2004</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2005')">2005</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2006')">2006</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2007')">2007</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2008')">2008</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2009')">2009</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2010')">2010</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2011')">2011</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2012')">2012</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2013')">2013</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2014')">2014</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2015')">2015</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2016')">2016</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2017')">2017</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2018')">2018</button>
-			<button type="button" class="btn btn-outline-info" onclick="update('2019')">2019</button>
+		<div class="container" id="defo">
+			<div class="row mb-3">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8 centered">
+					<h1>Perte de surface de forêt en hectare selon le type de déforestation</h1>
+					<hr>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="container centered">
+				<button type="button" class="btn btn-outline-success" onclick="update('2001')">2001</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2002')">2002</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2003')">2003</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2004')">2004</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2005')">2005</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2006')">2006</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2007')">2007</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2008')">2008</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2009')">2009</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2010')">2010</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2011')">2011</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2012')">2012</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2013')">2013</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2014')">2014</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2015')">2015</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2016')">2016</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2017')">2017</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2018')">2018</button>
+				<button type="button" class="btn btn-outline-success" onclick="update('2019')">2019</button>
+			</div>
+			<div id="grapheDeforestation"></div>
 		</div>
+		<script type="text/javascript" src="grapheDeforestation/grapheDeforestation.js"></script>
 	
-		<div id="grapheTotal"></div>
-		<script type="text/javascript" src="grapheTotal/grapheTotal.js"></script>
-
-		<div id="grapheComparatif">
-			<button type="button" class="btn btn-outline-info" id="replay">Replay</button>
+		<div class="container" id="compa">
+			<div class="row mb-3">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-7 centered">
+					<h1>Evolution de la déforestation dans le monde</h1>
+					<hr>
+				</div>
+				<div class="col-lg-2 centered mt-3"><h3>en hectares</h3></div>
+				<div class="col-lg-2 centered mt-3">
+					<button type="button" class="btn btn-outline-success" id="replay">Replay</button>
+				</div>
+			</div>
+			<div id="grapheComparatif">
+			</div>
 		</div>
 		<script type="text/javascript" src="grapheComparatif/grapheComparatif.js"></script>
 
-		<div id="graphePays"></div>
-		<script type="text/javascript" src="graphePays/graphePays.js"></script>
-		<div class="container">
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Argentine')">Argentine</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Australie')">Australie</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Bolivie')">Bolivie</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Bresil')">Bresil</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Canada')">Canada</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Chine')">Chine</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Colombie')">Colombie</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('etats-Unis')">Etats-Unis</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Indonesie')">Indonesie</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Madagascar')">Madagascar</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Malaisie')">Malaisie</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Mexique')">Mexique</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Myanmar')">Myanmar</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Nigeria')">Nigeria</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Paraguay')">Paraguay</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Perou')">Perou</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Republique democratique du Congo')">Republique democratique du Congo</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Russie')">Russie</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Suede')">Suede</button>
-			<button type="button" class="btn btn-outline-info" onclick="updateP('Tanzanie')">Tanzanie</button>
+		<div class="container" id="total">
+			<div class="row mb-3">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-7 centered">
+					<h1>Comparaison entre différent pays en fonction des causes de déforestation</h1>
+					<hr>
+				</div>
+				<div class="col-lg-3 centered mt-3"><h3>en 2019</h3></div>
+			</div>
+			<div id="grapheTotal"></div>
 		</div>
+		<script type="text/javascript" src="grapheTotal/grapheTotal.js"></script>
+
+		<div class="container" id="pays">
+			<div class="row mb-3">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8 centered">
+					<h1>Visualisation des causes de déforestations par pays</h1>
+					<hr>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="container centered">
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Argentine')">Argentine</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Australie')">Australie</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Bolivie')">Bolivie</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Bresil')">Bresil</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Canada')">Canada</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Chine')">Chine</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Colombie')">Colombie</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('etats-Unis')">Etats-Unis</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Indonesie')">Indonesie</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Madagascar')">Madagascar</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Malaisie')">Malaisie</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Mexique')">Mexique</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Myanmar')">Myanmar</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Nigeria')">Nigeria</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Paraguay')">Paraguay</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Perou')">Perou</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Republique democratique du Congo')">Republique democratique du Congo</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Russie')">Russie</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Suede')">Suede</button>
+				<button type="button" class="btn btn-outline-success" onclick="updateP('Tanzanie')">Tanzanie</button>
+			</div>
+			<div id="graphePays"></div>
+		</div>
+		<script type="text/javascript" src="graphePays/graphePays.js"></script>
 	</body>
 </html>
