@@ -43,39 +43,21 @@
   
 //Debut graph
 
-var marginDefo = { top: -340, right: 10, bottom: 20, left: 10 };
-var wDefo = 400 - marginDefo.left - marginDefo.right;
-var hDefo = 400 - marginDefo.top - marginDefo.bottom;
-
-// var svgDefo = d3.select("#grapheDeforestation")
-//     .append("svg")
-//     .attr("width", "100%")
-//     .attr("height", hDefo)
-//       .attr("viewBox", [-wDefo / 2, -hDefo / 2, wDefo, hDefo]);
-
-// var width = 600, height = 900;
-/*var width = wDefo, height = hDefo;
+var width = 800, height = 1100;
+var widthFixed = 1300, heightFixed = 1600;
 d3.select("#grapheTotal")
     .append("svg")
     .attr("id","svgComparatifPaysCause")
-    .attr("width",  "100%")
-    .attr("height", hDefo)
-    .attr("viewBox", [-wDefo / 2, -hDefo / 2, wDefo, hDefo]);
-*/
-
-var width = 600, height = 900;
-d3.select("#grapheTotal")
-    .append("svg")
-    .attr("id","svgComparatifPaysCause")
-    .attr("width", width)
-    .attr("height", height)
+    .attr("width", widthFixed)
+    .attr("height", heightFixed)
+    .attr("font-size","0.9rem")
   
 var svg = d3.select("#svgComparatifPaysCause"),
-width = +svg.attr("width"),
-height = +svg.attr("height"),
-innerRadius = 180,
+// width = +svg.attr("width"),
+// height = +svg.attr("height"),
+innerRadius = 250,
 outerRadius = Math.min(width, height) * 0.77,
-g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height * 0.78 + ")");
+g = svg.append("g").attr("transform", "translate(" + width / 1.2 + "," + height * 0.78 + ")");
 
 var x = d3.scaleBand()
 .range([0, 2 * Math.PI])
