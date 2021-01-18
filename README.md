@@ -19,4 +19,4 @@ You can access the web page of our project via this link : https://pltreger.gith
 
 You will find all the documentation of our project in the "wiki" section of GitHub.
 
-![](src/img/deforestation-bresil_6270718.jpg)
+![](src/img/35584_large.jpg)
