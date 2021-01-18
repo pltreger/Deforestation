@@ -15,3 +15,5 @@ The objective of this project was to represent, with the help of d3js visualizat
 You can access the web page of our project via this link : https://pltreger.github.io/Deforestation/
 
 You will find all the documentation of our project in the "wiki" section of GitHub.
+
+
