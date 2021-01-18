@@ -1,15 +1,17 @@
-# Deforestation
+# Data Visualization of Deforestation
 
-Ce projet a été réalisé par un groupe de 4 élèves dans le cadre de l'UE Data Visualization du Master 2 Intelligence Artificielle de l'université Claude Bernard Lyon 1 durant l'année scolaire 2020-2021.
+## Presentation
+This project was done by a group of 4 students within the Data Visualization teaching of the Master 2 Artificial Intelligence of the Claude Bernard Lyon 1 University during the academic year 2020-2021.
 
-Le groupe d'élève est composé de :
-* CHUPIN Pierre-Henri
+The objective of this project was to represent, with the help of d3js visualizations, the impact of humans on deforestation. Our main problematic was: "How could we show the different human factors responsible for deforestation?"
+
+### Contributors
+* CHUPIN Pierre-Henri 
 * JASSIGNEUX Marie
 * SOLOMON Maria
 * TREGER Pauline
 
-L'objectif de ce projet était de représenter, à l'aide de visualisations d3js, l'impact de l'Homme sur la déforestation. Notre problématique principale est : “Comment pourrait-on montrer les différents facteurs humain responsable de la déforestation ?”.
 
-Vous pouvez accéder à la page web de notre projet via ce lien : https://pltreger.github.io/Deforestation/
+You can access the web page of our project via this link : https://pltreger.github.io/Deforestation/
 
-Vous trouverez toute la documentation de notre projet dans l'onglet "wiki" de GitHub
+You will find all the documentation of our project in the "wiki" section of GitHub.
