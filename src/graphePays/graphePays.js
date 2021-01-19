@@ -31,8 +31,6 @@ d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/main/data/perte
 
 function updateP(paysD) {
 
-    console.log('Patate')
-
     svgP
 		.selectAll('path')
         .remove()
@@ -70,7 +68,6 @@ function updateP(paysD) {
     // Mettre à jour le max de la courbe Y
     let max = 0;
     csvDataPays.forEach(p => {
-        console.log(p)
         return p.values.forEach(m => {
             max = Math.max(max, m.perte_surface_ha)
         })
@@ -163,7 +160,6 @@ function updateP(paysD) {
         })
         .on('mouseout', function() {
             // on cache le toolip
-            console.log('OUT')
             tooltipP.style('opacity', 0)
         })
     
@@ -179,7 +175,6 @@ function updateP(paysD) {
                 .style("fill", function(d){ return myColor(d.name) })
                 .style("font-size", 15)
             .on("click", function(event, d){
-                console.log(event)
                 // is the element currently visible ?
                 currentOpacity = d3.selectAll("." + d.name[4]).style("opacity")
                 // Change the opacity: from 0 to 1 or from 1 to 0

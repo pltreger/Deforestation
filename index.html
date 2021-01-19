@@ -195,39 +195,64 @@
 		</div>
 		<!-- /white -->
 
-		<div class="container" id="defo">
-			<div class="row mb-3">
-				<div class="col-lg-2"></div>
-				<div class="col-lg-8 centered">
-					<h1>Perte de surface de forêt en hectare selon le type de déforestation</h1>
-					<hr>
+		<nav>
+			<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+			  <a class="nav-link" id="nav-first-tab" data-bs-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-selected="false">Première Visualisation Possible</a>
+			  <a class="nav-link active" id="nav-second-tab" data-bs-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" aria-selected="true">Deuxième Visualisation Possible</a>
+			</div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+			<div class="tab-pane fade show active" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
+				<div class="container" id="defo">
+					<div class="row mb-3">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 centered">
+							<h1>Perte de surface de forêt en hectare selon le type de déforestation</h1>
+							<hr>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+					<div class="container centered">
+						<button type="button" class="btn btn-outline-success" onclick="update('2001')">2001</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2002')">2002</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2003')">2003</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2004')">2004</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2005')">2005</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2006')">2006</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2007')">2007</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2008')">2008</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2009')">2009</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2010')">2010</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2011')">2011</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2012')">2012</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2013')">2013</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2014')">2014</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2015')">2015</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2016')">2016</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2017')">2017</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2018')">2018</button>
+						<button type="button" class="btn btn-outline-success" onclick="update('2019')">2019</button>
+					</div>
+					<div id="grapheDeforestation"></div>
 				</div>
-				<div class="col-lg-2"></div>
 			</div>
-			<div class="container centered">
-				<button type="button" class="btn btn-outline-success" onclick="update('2001')">2001</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2002')">2002</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2003')">2003</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2004')">2004</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2005')">2005</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2006')">2006</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2007')">2007</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2008')">2008</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2009')">2009</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2010')">2010</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2011')">2011</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2012')">2012</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2013')">2013</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2014')">2014</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2015')">2015</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2016')">2016</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2017')">2017</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2018')">2018</button>
-				<button type="button" class="btn btn-outline-success" onclick="update('2019')">2019</button>
+			<div class="tab-pane fade" id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab">
+				<div class="container" id="defo">
+					<div class="row mb-3">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 centered">
+							<h1>Perte de surface de forêt en hectare selon le type de déforestation</h1>
+							<hr>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+					<div id="grapheDeforestationBis"></div>
+				</div>
 			</div>
-			<div id="grapheDeforestation"></div>
 		</div>
 		<script type="text/javascript" src="src/grapheDeforestation/grapheDeforestation.js"></script>
+		<script type="text/javascript" src="src/grapheDeforestation/grapheDeforestationBis.js"></script>
+		
 	
 		<div class="container" id="compa">
 			<div class="row mb-3">
