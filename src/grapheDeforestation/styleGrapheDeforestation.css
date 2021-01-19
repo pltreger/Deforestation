@@ -8,4 +8,9 @@ text.titreDefo {
     font-size: 64px;
     font-weight: 700;
     opacity: 0.1;
-  }
+}
+
+rect:hover {
+    stroke-width: 1px;
+    stroke: black;
+}
