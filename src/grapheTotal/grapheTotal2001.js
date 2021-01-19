@@ -12,7 +12,7 @@
     }
   
     function radial() {
-      var linear = d3Scale.scaleLinear();
+      let linear = d3Scale.scaleLinear();
   
       function scale(x) {
         return Math.sqrt(linear(x));
@@ -43,34 +43,35 @@
   
 //Debut graph
 
-var width = 800, height = 820;
-d3.select("#grapheTotal")
+var width2001 = 400, height2001 = 350;
+d3.select("#grapheTotal2001")
     .append("svg")
-    .attr("id","svgComparatifPaysCause")
+    .attr("id","svgComparatifPaysCause2001")
     .attr("width", "100%")
-    .attr("height", height)
-    .attr("viewBox", [0,0,1600,1090])
+    .attr("height", height2001)
+    //.attr("viewBox", [0,0,800,700])
+    .attr("viewBox", [300,0,200,475])
     .attr("font-size","0.9rem")
   
-var svg = d3.select("#svgComparatifPaysCause"),
-// width = +svg.attr("width"),
-// height = +svg.attr("height"),
-innerRadius = 200,
-outerRadius = Math.min(width, height),
-g = svg.append("g").attr("transform", "translate(" + width + "," + height + ")");
+var svg2001 = d3.select("#svgComparatifPaysCause2001"),
+// width2001 = +svg2001.attr("width2001"),
+// height2001 = +svg2001.attr("height2001"),
+innerRadius2001 = 100,
+outerRadius2001 = Math.min(width2001, height2001),
+g2001 = svg2001.append("g").attr("transform", "translate(" + width2001 + "," + height2001 + ")");
 
-var x = d3.scaleBand()
+var x2001 = d3.scaleBand()
 .range([0, 2 * Math.PI]);
 
-var y = d3.scaleRadial()
-.range([innerRadius, outerRadius]);
+var y2001 = d3.scaleRadial()
+.range([innerRadius2001, outerRadius2001]);
 
-var z = d3.scaleOrdinal()
+var z2001 = d3.scaleOrdinal()
 .range(["#0DB39E","#B9E769","#F29E4C","#2C699A","#EFEA5A","#54478C"]);
 
 d3.csv("https://raw.githubusercontent.com/pltreger/Deforestation/maria/data/perte_couverture_par_pays_par_causes.csv", function(data) {
 total = 0;
-if (data.annee == "2019")
+if (data.annee == "2001")
     return{
         pays: data.pays,
         perte_surface_ha : data.perte_surface_ha,
@@ -112,7 +113,7 @@ for (i = 0; i < data.length; ++i) {
 pays = ["Argentine", "Australie", "Bolivie", "Bresil", "Canada", "Chine", "Colombie", "etats-Unis", "Indonesie", "Madagascar", "Malaisie", "Mexique", "Myanmar", "Nigeria", "Paraguay", "Perou", "Republique democratique du Congo", "Russie", "Suede", "Tanzanie"]
 parsedData = []
 for (j = 0; j < pays.length; ++j) {
-    var newData = []
+    let newData = []
     // console.log(data);
     for (k = 0; k < data.length; ++k) {
         //console.log(data[k]);
@@ -168,93 +169,93 @@ parsedData.columns = ["pays", "Autres", "Foresterie", "Feu de foret", "Deforesta
 //console.log(dataParsed)
 
 weave(parsedData, function(a, b) { return b["total"] -  a["total"]; });
-x.domain(parsedData.map(function(d) { return d.pays; }));
-y.domain([0, d3.max(parsedData, function(d) { return d.total; })]);
-z.domain(parsedData.columns.slice(1));
+x2001.domain(parsedData.map(function(d) { return d.pays; }));
+y2001.domain([0, d3.max(parsedData, function(d) { return d.total; })]);
+z2001.domain(parsedData.columns.slice(1));
 
-g.append("g")
+g2001.append("g")
 .selectAll("g")
 .data(d3.stack().keys(parsedData.columns.slice(1))(parsedData))
 .enter().append("g")
-  .attr("fill", function(d) { return z(d.key); })
+  .attr("fill", function(d) { return z2001(d.key); })
 .selectAll("path")
 .data(function(d) { return d; })
 .enter().append("path")
   .attr("d", d3.arc()
-      .innerRadius(function(d) { return y(d[0]); })
-      .outerRadius(function(d) { return y(d[1]); })
-      .startAngle(function(d) { return x(d.data.pays); })
-      .endAngle(function(d) { return x(d.data.pays) + x.bandwidth(); })
+      .innerRadius(function(d) { return y2001(d[0]); })
+      .outerRadius(function(d) { return y2001(d[1]); })
+      .startAngle(function(d) { return x2001(d.data.pays); })
+      .endAngle(function(d) { return x2001(d.data.pays) + x2001.bandwidth(); })
       .padAngle(0.01)
-      .padRadius(innerRadius));
+      .padRadius(innerRadius2001));
 
-var label = g.append("g")
+/*var label2001 = g2001.append("g")
 .selectAll("g")
 .data(parsedData)
 .enter().append("g")
   .attr("text-anchor", "middle")
-  .attr("transform", function(d) { return "rotate(" + ((x(d.pays) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ")translate(" + innerRadius + ",0)"; });
+  .attr("transform", function(d) { return "rotate(" + ((x2001(d.pays) + x2001.bandwidth() / 2) * 180 / Math.PI - 90) + ")translate(" + innerRadius2001 + ",0)"; });
 
-label.append("line")
+label2001.append("line")
   .attr("x2", -5)
   .attr("stroke", "#000");
 
-label.append("text")
-  .attr("transform", function(d) { return (x(d.pays) + x.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,16)" : "rotate(-90)translate(0,-9)"; })
-  .text(function(d) { return d.pays; });
+label2001.append("text")
+  .attr("transform", function(d) { return (x2001(d.pays) + x2001.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI ? "rotate(90)translate(0,16)" : "rotate(-90)translate(0,-9)"; })
+  .text(function(d) { return d.pays; });*/
 
-var yAxis = g.append("g")
+var yAxis2001 = g2001.append("g")
   .attr("text-anchor", "end");
 
-var yTick = yAxis
+var yTick2001 = yAxis2001
 .selectAll("g")
-.data(y.ticks(10).slice(1))
+.data(y2001.ticks(7).slice(1))
 .enter().append("g");
 
-yTick.append("circle")
+yTick2001.append("circle")
   .attr("fill", "none")
   .attr("stroke", "#000")
   .attr("stroke-opacity", 0.5)
-  .attr("r", y);
+  .attr("r", y2001);
 
-yTick.append("text")
+yTick2001.append("text")
   .attr("x", -6)
-  .attr("y", function(d) { return -y(d); })
+  .attr("y", function(d) { return -y2001(d); })
   .attr("dy", "0.35em")
   .attr("fill", "none")
   .attr("stroke", "#fff")
   .attr("stroke-linejoin", "round")
-  .attr("stroke-width", 3)
-  .text(y.tickFormat(10, "s"));
+  .attr("stroke-width2001", 3)
+  .text(y2001.tickFormat(10, "s"));
 
-yTick.append("text")
+yTick2001.append("text")
   .attr("x", -6)
-  .attr("y", function(d) { return -y(d); })
+  .attr("y", function(d) { return -y2001(d); })
   .attr("dy", "0.35em")
-  .text(y.tickFormat(10, "s"));
+  .text(y2001.tickFormat(10, "s"));
 
-yAxis.append("text")
+yAxis2001.append("text")
   .attr("x", -6)
-  .attr("y", function(d) { return -y(y.ticks(10).pop()); })
+  .attr("y", function(d) { return -y2001(y2001.ticks(10).pop()); })
   .attr("dy", "-1em")
   .text("Perte en surface");
 
-var legend = g.append("g")
+/*var legend = g.append("g")
 .selectAll("g")
 .data(parsedData.columns.slice(1).reverse())
 .enter().append("g")
   .attr("transform", function(d, i) { return "translate(-40," + (i - (parsedData.columns.length - 1) / 2) * 20 + ")"; });
 
 legend.append("rect")
-  .attr("width", 18)
-  .attr("height", 18)
+  .attr("width2001", 18)
+  .attr("height2001", 18)
   .attr("fill", z);
 
 legend.append("text")
   .attr("x", 24)
   .attr("y", 9)
   .attr("dy", "0.35em")
-  .text(function(d) { return d === "Deforestation due aux produits de base" ? "Deforestation produits base" : d;  });
+  .text(function(d) { return d === "Deforestation due aux produits de base" ? "Deforestation produits base" : d;  });*/
 });
 
 function weave(array, compare) {
