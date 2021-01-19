@@ -197,12 +197,25 @@
 
 		<nav>
 			<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-			  <a class="nav-link" id="nav-first-tab" data-bs-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-selected="false">Première Visualisation Possible</a>
-			  <a class="nav-link active" id="nav-second-tab" data-bs-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" aria-selected="true">Deuxième Visualisation Possible</a>
+			  <a class="nav-link active" id="nav-first-tab" data-bs-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-selected="false">Première Visualisation Possible</a>
+			  <a class="nav-link" id="nav-second-tab" data-bs-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" aria-selected="true">Deuxième Visualisation Possible</a>
 			</div>
 		</nav>
 		<div class="tab-content" id="nav-tabContent">
-			<div class="tab-pane fade" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
+			<div class="tab-pane fade show active" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
+				<div class="container" id="defo">
+					<div class="row mb-3">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 centered">
+							<h1>Perte de surface de forêt en hectare selon le type de déforestation</h1>
+							<hr>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+					<div id="grapheDeforestationBis"></div>
+				</div>
+			</div>
+			<div class="tab-pane fade show active" id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab">
 				<div class="container" id="defo">
 					<div class="row mb-3">
 						<div class="col-lg-2"></div>
@@ -234,19 +247,6 @@
 						<button type="button" class="btn btn-outline-success" onclick="update('2019')">2019</button>
 					</div>
 					<div id="grapheDeforestation"></div>
-				</div>
-			</div>
-			<div class="tab-pane fade show active" id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab">
-				<div class="container" id="defo">
-					<div class="row mb-3">
-						<div class="col-lg-2"></div>
-						<div class="col-lg-8 centered">
-							<h1>Perte de surface de forêt en hectare selon le type de déforestation</h1>
-							<hr>
-						</div>
-						<div class="col-lg-2"></div>
-					</div>
-					<div id="grapheDeforestationBis"></div>
 				</div>
 			</div>
 		</div>
