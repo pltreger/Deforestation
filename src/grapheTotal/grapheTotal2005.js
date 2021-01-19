@@ -50,7 +50,7 @@ d3.select("#grapheTotal2005")
   .attr("width", "100%")
   .attr("height", height2005)
   //.attr("viewBox", [0,0,800,700])
-  .attr("viewBox", [300,0,200,475])
+  .attr("viewBox", [300,-20,200,500])
   .attr("font-size","0.9rem")
 
 var svg2005 = d3.select("#svgComparatifPaysCause2005"),
@@ -173,6 +173,10 @@ x2005.domain(parsedData.map(function(d) { return d.pays; }));
 y2005.domain([0, d3.max(parsedData, function(d) { return d.total; })]);
 z2005.domain(parsedData.columns.slice(1));
 
+var tooltip2005 = d3.select("#grapheTotal2005")
+        .append("div")
+        .attr("class", "tooltip")
+
 g2005.append("g")
 .selectAll("g")
 .data(d3.stack().keys(parsedData.columns.slice(1))(parsedData))
@@ -187,7 +191,20 @@ g2005.append("g")
     .startAngle(function(d) { return x2005(d.data.pays); })
     .endAngle(function(d) { return x2005(d.data.pays) + x2005.bandwidth(); })
     .padAngle(0.01)
-    .padRadius(innerRadius2005));
+    .padRadius(innerRadius2005))
+    .on('mouseover', function(event,d) {
+      //console.log(event.selection)
+       tooltip2005.style("visibility", "visible")
+     })
+     .on('mousemove', function(event, d) {
+       tooltip2005
+         .style("left", (event.pageX) + 28 + "px")
+         .style("top", (event.pageY) - 28 + "px")
+         .html(d.data.pays + "<br>" + parseInt(d.data.total) + " ha");
+     })
+     .on('mouseout', function() {
+       tooltip2005.style("visibility", "hidden")
+     });
 
 /*var label2005 = g2005.append("g")
 .selectAll("g")

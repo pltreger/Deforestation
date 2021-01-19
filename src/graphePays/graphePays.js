@@ -145,7 +145,7 @@ function updateP(paysD) {
         .on('mouseover', function(event,d) {
             //console.log(event.selection)
            
-            tooltipP.style("opacity", 1)
+            tooltipP.style("visibility", "visible")
         })
         .on('mousemove', function(event, d) {
             // on recupere la position de la souris
@@ -160,7 +160,7 @@ function updateP(paysD) {
         })
         .on('mouseout', function() {
             // on cache le toolip
-            tooltipP.style('opacity', 0)
+            tooltipP.style("visibility", "hidden")
         })
     
     svgP
