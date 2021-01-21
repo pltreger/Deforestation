@@ -197,8 +197,8 @@
 
 		<nav>
 			<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-			  <a class="nav-link active" id="nav-first-tab" data-bs-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-selected="false">Première Visualisation Possible</a>
-			  <a class="nav-link" id="nav-second-tab" data-bs-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" aria-selected="true">Deuxième Visualisation Possible</a>
+			  <a class="nav-link active" id="nav-first-tab" data-bs-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-selected="false">Evolution des différentes causes humaines</a>
+			  <a class="nav-link" id="nav-second-tab" data-bs-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" aria-selected="true">Répartition détaillée par année des différentes causes humaines</a>
 			</div>
 		</nav>
 		<div class="tab-content" id="nav-tabContent">
@@ -209,6 +209,17 @@
 						<div class="col-lg-8 centered">
 							<h1>Perte de surface de forêt en hectare selon le type de déforestation</h1>
 							<hr>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8">
+							<div class="alert alert-primary alert-dismissible" role="alert">
+								<strong> Information : </strong>
+								Si vous voulez vous renseignez plus en détail sur une année en particulier, cliquez sur l'onglet droit <u>Répartition détaillée par année des différentes causes humaines</u> juste au dessus du titre.
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
 						</div>
 						<div class="col-lg-2"></div>
 					</div>
@@ -246,6 +257,16 @@
 						<button type="button" class="btn btn-outline-success" onclick="update('2018')">2018</button>
 						<button type="button" class="btn btn-outline-success" onclick="update('2019')">2019</button>
 					</div>
+					<div class="row mt-2 mb-3">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8">
+							<div class="alert alert-primary alert-dismissible" role="alert">
+								<strong>Information : </strong> Cliquez sur le bouton de l'année souhaitée pour avoir les informations pour cette année là. Par défaut, vous voyez l'année 2019. Si vous souhaitez retourner sur l'autre graphique, cliquez sur l'onglet gauche <u>Evolution des différentes causes humaines</u> juste au dessus du titre.
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
 					<div id="grapheDeforestation"></div>
 				</div>
 			</div>
@@ -266,6 +287,16 @@
 					<button type="button" class="btn btn-outline-success" id="replay">Replay</button>
 				</div>
 			</div>
+			<div class="row mb-3">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8">
+					<div class="alert alert-primary alert-dismissible" role="alert">
+						<strong>Information : </strong> Vous pouvez redémarrer l'animation en cliquant sur le bouton <u>Replay</u> à droite de votre écran.
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
 			<div id="grapheComparatif">
 			</div>
 		</div>
@@ -274,9 +305,19 @@
 		<div class="container" id="total">
 			<div class="row mb-3">
 				<div class="col-lg-2"></div>
-				<div class="col-lg-7 centered">
+				<div class="col-lg-8 centered">
 					<h1>Comparaison entre différent pays en fonction des causes de déforestation</h1>
 					<hr>
+				</div>
+				<div class="row mb-3">
+					<div class="col-lg-2"></div>
+					<div class="col-lg-8">
+						<div class="alert alert-primary alert-dismissible" role="alert">
+							<strong>Information : </strong> Passez votre souris sur une colonne pour voir le pays auquelle elle correspond ainsi que la valeur totale des pertes de surface de forêt en hectares.
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="col-lg-2"></div>
 				</div>
 				<div class="col-lg-4 mb-2 centered">
 					<h3> 2001 </h3>
@@ -342,6 +383,16 @@
 				<button type="button" class="btn btn-outline-success" onclick="updateP('Russie')">Russie</button>
 				<button type="button" class="btn btn-outline-success" onclick="updateP('Suede')">Suede</button>
 				<button type="button" class="btn btn-outline-success" onclick="updateP('Tanzanie')">Tanzanie</button>
+			</div>
+			<div class="row mt-2 mb-3">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8">
+					<div class="alert alert-primary alert-dismissible" role="alert">
+						<strong>Information : </strong> Vous pouvez choisir le pays qui vous intéresse en cliquant sur le bouton correspondant à ce pays. Plusieurs courbes s'affichent, vous pouvez cacher les courbes non voulut en cliquant sur le nom de la courbe correspondante sur la légende à droite du graphique. Si vous voulez refaire apparaitre une courbe caché, il suffit de recliquez sur son nom dans la légende. Vous pouvez aussi passer votre souris sur les différents points de la courbe pour voir plus en détail les informations de ce point. <br><strong>Attention !</strong> L'échelle de l'axe n'est pas toujours le même faites attention lors de votre lecture. En effet, l'échelle s'adapte au pays affiché.
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				</div>
+				<div class="col-lg-2"></div>
 			</div>
 			<div id="graphePays"></div>
 		</div>
